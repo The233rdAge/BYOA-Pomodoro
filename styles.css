@@ -1,6 +1,6 @@
 :root {
     --color-background: #f8fafc;
-    --color-container: rgba(225, 217, 217, 0.894);
+    --color-container: rgba(255, 255, 255, 0.95);
     --color-text: #1e293b;
     --color-reset: #ef4444;
     --color-reset-hover: #dc2626;
@@ -25,18 +25,29 @@ body {
     background-color: var(--color-container);
     padding: 2.5rem;
     border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
-                0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    max-width: 400px;
-    width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    width: 400px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.status {
+    min-height: 24px;
 }
 
 .timer {
     font-size: 5rem;
     font-weight: 700;
-    margin: 2rem 0;
+    margin: 1rem 0;
     color: var(--color-text);
     font-variant-numeric: tabular-nums;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .controls {
