@@ -39,6 +39,19 @@ const translations = {
         anotherLoop: 'Un autre cycle !',
         workTimeOver: 'Temps de travail terminé ! Prenez une pause !',
         breakTimeOver: 'Pause terminée ! Retour au travail !'
+    },
+    ko: {
+        start: '시작',
+        pause: '일시정지',
+        reset: '초기화',
+        restMode: '휴식 모드',
+        workMode: '작업 모드',
+        workTime: '작업 시간',
+        breakTime: '휴식 시간',
+        timeToFocus: '집중할 시간입니다!',
+        anotherLoop: '다음 사이클!',
+        workTimeOver: '작업 시간이 끝났습니다! 휴식을 취하세요!',
+        breakTimeOver: '휴식 시간이 끝났습니다! 다시 작업하세요!'
     }
 };
 
