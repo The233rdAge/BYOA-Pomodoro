@@ -84,4 +84,8 @@ modeToggle.addEventListener('click', () => {
     isRunning = false;
     startButton.textContent = 'Start';
     switchMode();
+});
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => updateLanguage(btn.dataset.lang));
 }); 
