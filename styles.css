@@ -65,10 +65,10 @@ body {
 }
 
 #mode-toggle.rest-mode {
-    background-color: #10b981;  /* Fresh green */
+    background-color: #10a5b9;  /* Fresh green */
     color: white;
 }
 
 #mode-toggle.rest-mode:hover {
-    background-color: #059669;
+    background-color: #10a5b9;
 } 
