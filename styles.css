@@ -1,3 +1,14 @@
+:root {
+    --color-background: #f8fafc;
+    --color-container: rgba(225, 217, 217, 0.894);
+    --color-text: #1e293b;
+    --color-reset: #ef4444;
+    --color-reset-hover: #dc2626;
+    --color-work: #3b82f6;
+    --color-work-hover: #2563eb;
+    --color-rest: #10a5b9;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     display: flex;
@@ -5,12 +16,12 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f8fafc;
+    background-color: var(--color-background);
 }
 
 .container {
     text-align: center;
-    background-color: rgba(225, 217, 217, 0.894);
+    background-color: var(--color-container);
     padding: 2.5rem;
     border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
@@ -23,7 +34,7 @@ body {
     font-size: 5rem;
     font-weight: 700;
     margin: 2rem 0;
-    color: #1e293b;
+    color: var(--color-text);
     font-variant-numeric: tabular-nums;
 }
 
@@ -47,28 +58,28 @@ body {
 }
 
 #reset {
-    background-color: #ef4444;
+    background-color: var(--color-reset);
     color: white;
 }
 
 #reset:hover {
-    background-color: #dc2626;
+    background-color: var(--color-reset-hover);
 }
 
 #mode-toggle.work-mode {
-    background-color: #3b82f6;  /* Modern blue */
+    background-color: var(--color-work);
     color: white;
 }
 
 #mode-toggle.work-mode:hover {
-    background-color: #2563eb;
+    background-color: var(--color-work-hover);
 }
 
 #mode-toggle.rest-mode {
-    background-color: #10a5b9;  /* Fresh green */
+    background-color: var(--color-rest);
     color: white;
 }
 
 #mode-toggle.rest-mode:hover {
-    background-color: #10a5b9;
+    background-color: var(--color-rest);
 } 
