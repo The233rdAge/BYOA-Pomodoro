@@ -152,7 +152,7 @@ resetButton.addEventListener('click', resetTimer);
 modeToggle.addEventListener('click', () => {
     clearInterval(timer);
     isRunning = false;
-    startButton.textContent = 'Start';
+    startButton.textContent = translations[currentLang].start;
     switchMode();
 });
 
