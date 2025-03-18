@@ -13,6 +13,63 @@ const statusText = document.getElementById('status-text');
 const modeToggle = document.getElementById('mode-toggle');
 const timerSound = document.getElementById('timerSound');
 
+const translations = {
+    en: {
+        start: 'Start',
+        pause: 'Pause',
+        reset: 'Reset',
+        restMode: 'Rest Mode',
+        workMode: 'Work Mode',
+        workTime: 'Work Time',
+        breakTime: 'Break Time',
+        timeToFocus: 'Time to focus!',
+        anotherLoop: 'Time for another loop!',
+        workTimeOver: 'Work time is over! Take a break!',
+        breakTimeOver: 'Break is over! Back to work!'
+    },
+    fr: {
+        start: 'Démarrer',
+        pause: 'Pause',
+        reset: 'Réinitialiser',
+        restMode: 'Mode Repos',
+        workMode: 'Mode Travail',
+        workTime: 'Temps de Travail',
+        breakTime: 'Temps de Pause',
+        timeToFocus: 'Temps de se concentrer !',
+        anotherLoop: 'Un autre cycle !',
+        workTimeOver: 'Temps de travail terminé ! Prenez une pause !',
+        breakTimeOver: 'Pause terminée ! Retour au travail !'
+    }
+};
+
+let currentLang = 'en';
+
+function updateLanguage(lang) {
+    currentLang = lang;
+    
+    // Update button texts
+    startButton.textContent = isRunning ? translations[lang].pause : translations[lang].start;
+    resetButton.textContent = translations[lang].reset;
+    modeToggle.textContent = isWorkTime ? translations[lang].restMode : translations[lang].workMode;
+    
+    // Update status text
+    if (statusText.textContent === 'Time to focus!') {
+        statusText.textContent = translations[lang].timeToFocus;
+    } else if (statusText.textContent === 'Time for another loop!') {
+        statusText.textContent = translations[lang].anotherLoop;
+    } else {
+        statusText.textContent = isWorkTime ? translations[lang].workTime : translations[lang].breakTime;
+    }
+    
+    // Update document title
+    document.title = `${isWorkTime ? translations[lang].workTime : translations[lang].breakTime} - Pomodoro`;
+    
+    // Update active state of language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+}
+
 function updateDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
@@ -24,10 +81,10 @@ function updateDisplay() {
 function switchMode() {
     isWorkTime = !isWorkTime;
     timeLeft = isWorkTime ? workTime : breakTime;
-    statusText.textContent = isWorkTime ? 'Work Time' : 'Break Time';
-    document.title = isWorkTime ? 'Work Time - Pomodoro' : 'Break Time - Pomodoro';
+    statusText.textContent = isWorkTime ? translations[currentLang].workTime : translations[currentLang].breakTime;
+    document.title = `${isWorkTime ? translations[currentLang].workTime : translations[currentLang].breakTime} - Pomodoro`;
     statusText.style.display = 'block';
-    modeToggle.textContent = isWorkTime ? 'Rest Mode' : 'Work Mode';
+    modeToggle.textContent = isWorkTime ? translations[currentLang].restMode : translations[currentLang].workMode;
     modeToggle.className = isWorkTime ? 'work-mode' : 'rest-mode';
     updateDisplay();
 }
@@ -37,7 +94,7 @@ function startTimer() {
         isRunning = true;
         startButton.textContent = 'Pause';
         statusText.style.display = 'block';  // Show status text
-        statusText.textContent = isWorkTime ? 'Work Time' : 'Break Time';
+        statusText.textContent = isWorkTime ? translations[currentLang].workTime : translations[currentLang].breakTime;
         
         timer = setInterval(() => {
             timeLeft--;
@@ -45,7 +102,7 @@ function startTimer() {
             
             if (timeLeft === 0) {
                 timerSound.play();
-                alert(isWorkTime ? 'Work time is over! Take a break!' : 'Break is over! Back to work!');
+                alert(isWorkTime ? translations[currentLang].workTimeOver : translations[currentLang].breakTimeOver);
                 switchMode();
             }
         }, 1000);
