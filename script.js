@@ -158,4 +158,7 @@ modeToggle.addEventListener('click', () => {
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => updateLanguage(btn.dataset.lang));
-}); 
+});
+
+// Initialize language
+updateLanguage('en'); 
