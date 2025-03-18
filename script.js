@@ -15,6 +15,7 @@ const timerSound = document.getElementById('timerSound');
 
 const translations = {
     en: {
+        title: 'Pomodoro Timer',
         start: 'Start',
         pause: 'Pause',
         reset: 'Reset',
@@ -28,6 +29,7 @@ const translations = {
         breakTimeOver: 'Break is over! Back to work!'
     },
     fr: {
+        title: 'Minuteur Pomodoro',
         start: 'Démarrer',
         pause: 'Pause',
         reset: 'Réinitialiser',
@@ -41,6 +43,7 @@ const translations = {
         breakTimeOver: 'Pause terminée ! Retour au travail !'
     },
     ko: {
+        title: '포모도로 타이머',
         start: '시작',
         pause: '일시정지',
         reset: '초기화',
@@ -59,6 +62,9 @@ let currentLang = 'en';
 
 function updateLanguage(lang) {
     currentLang = lang;
+    
+    // Update title
+    document.querySelector('h1').textContent = translations[lang].title;
     
     // Update button texts
     startButton.textContent = isRunning ? translations[lang].pause : translations[lang].start;

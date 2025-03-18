@@ -48,7 +48,10 @@ h1 {
 
 .status p {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--color-text);
 }
 
 .timer {
