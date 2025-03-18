@@ -20,6 +20,7 @@ body {
 }
 
 .container {
+    position: relative;
     text-align: center;
     background-color: var(--color-container);
     padding: 2.5rem;
@@ -90,6 +91,7 @@ body {
     right: 20px;
     display: flex;
     gap: 10px;
+    z-index: 1;
 }
 
 .lang-btn {
@@ -100,12 +102,15 @@ body {
     padding: 5px;
     border-radius: 5px;
     transition: transform 0.2s;
+    opacity: 0.7;
 }
 
 .lang-btn:hover {
     transform: scale(1.1);
+    opacity: 1;
 }
 
 .lang-btn.active {
     box-shadow: 0 0 0 2px var(--color-work);
+    opacity: 1;
 } 
