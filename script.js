@@ -92,8 +92,8 @@ function switchMode() {
 function startTimer() {
     if (!isRunning) {
         isRunning = true;
-        startButton.textContent = 'Pause';
-        statusText.style.display = 'block';  // Show status text
+        startButton.textContent = translations[currentLang].pause;
+        statusText.style.display = 'block';
         statusText.textContent = isWorkTime ? translations[currentLang].workTime : translations[currentLang].breakTime;
         
         timer = setInterval(() => {
@@ -108,7 +108,7 @@ function startTimer() {
         }, 1000);
     } else {
         isRunning = false;
-        startButton.textContent = 'Start';
+        startButton.textContent = translations[currentLang].start;
         clearInterval(timer);
     }
 }
@@ -118,10 +118,10 @@ function resetTimer() {
     clearInterval(timer);
     isWorkTime = true;
     timeLeft = workTime;
-    startButton.textContent = 'Start';
-    statusText.textContent = 'Time for another loop!';
-    statusText.style.display = 'block';  // Show the status text
-    modeToggle.textContent = 'Rest Mode';
+    startButton.textContent = translations[currentLang].start;
+    statusText.textContent = translations[currentLang].anotherLoop;
+    statusText.style.display = 'block';
+    modeToggle.textContent = translations[currentLang].restMode;
     modeToggle.className = 'work-mode';
     updateDisplay();
 }
