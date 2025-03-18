@@ -55,6 +55,9 @@ body {
     font-weight: 600;
     transition: all 0.2s ease;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .controls button:hover {
